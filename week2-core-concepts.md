@@ -1,4 +1,4 @@
-## Kubernetes
+## Kubernetes core concepts  
 
 ### 1. Components
 **API server**
