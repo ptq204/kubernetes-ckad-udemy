@@ -166,9 +166,14 @@ Create pod based on YAML file:
 kubectl create -f pod-definition.yml
 ```  
 
-Get list of po  
+Get list of pod  
 ```sh
 kubectl get pods
+```  
+
+Get list of pods with more info:  
+```sh
+kubectl get pods -o wide
 ```  
 
 Get details of the pod  
@@ -194,6 +199,11 @@ kubectl get pod <pod-name> -o yaml > pod-definition.yaml
 Edit pod properties  
 ```sh
 kubectl edit pod <pod-name>
+```  
+
+Execute command on the created pod, ex: `date -s '19 APR 2012 11:14:00'`  
+```sh
+kubectl exec -it <pod_name> -c <container_name> -- date -s '19 APR 2012 11:14:00'
 ```  
 
 #### 3.2 Replication controller  
@@ -272,6 +282,16 @@ kubectl create deployment nginx --image=nginx --replicas=<numer-of-replicas>
 - Scale deployments  
 ```sh
 kubectl scale deployment nginx --replicas=4
+```  
+
+- Apply changes in YAML file  
+```sh
+kubectl apply -f deployment-definition.yml
+```  
+
+- Update image of deployment  
+```sh
+kubectl set image deployment/<deployment-name> <image>=<image_version>
 ```  
 
 #### 3.5 Output format  
